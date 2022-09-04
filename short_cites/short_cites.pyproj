@@ -3,6 +3,7 @@
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
     <Name>short_cites</Name>
     <RootNamespace>short_cites</RootNamespace>
+    <InterpreterId>MSBuild|env|$(MSBuildProjectFullPath)</InterpreterId>
   </PropertyGroup>
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
@@ -30,6 +31,13 @@
   </PropertyGroup>
   <ItemGroup>
     <Compile Include="manage.py" />
+    <Compile Include="shorter\admin.py" />
+    <Compile Include="shorter\apps.py" />
+    <Compile Include="shorter\migrations\__init__.py" />
+    <Compile Include="shorter\models.py" />
+    <Compile Include="shorter\tests.py" />
+    <Compile Include="shorter\views.py" />
+    <Compile Include="shorter\__init__.py" />
     <Compile Include="short_cites\__init__.py" />
     <Compile Include="short_cites\settings.py" />
     <Compile Include="short_cites\urls.py" />
@@ -37,9 +45,25 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="requirements.txt" />
+    <Content Include="shorter\templates\shorter\index.html" />
   </ItemGroup>
   <ItemGroup>
+    <Folder Include="shorter\" />
+    <Folder Include="shorter\migrations\" />
+    <Folder Include="shorter\templates\" />
+    <Folder Include="shorter\templates\shorter\" />
     <Folder Include="short_cites\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Interpreter Include="env\">
+      <Id>env</Id>
+      <Version>3.7</Version>
+      <Description>env (Python 3.7 (64-bit))</Description>
+      <InterpreterPath>Scripts\python.exe</InterpreterPath>
+      <WindowsInterpreterPath>Scripts\pythonw.exe</WindowsInterpreterPath>
+      <PathEnvironmentVariable>PYTHONPATH</PathEnvironmentVariable>
+      <Architecture>X64</Architecture>
+    </Interpreter>
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\Python Tools\Microsoft.PythonTools.Django.targets" />
   <!-- Specify pre- and post-build commands in the BeforeBuild and 
